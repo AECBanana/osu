@@ -100,6 +100,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysi
 		CodeAnalysis\osu.globalconfig = CodeAnalysis\osu.globalconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework", "..\osu-framework\osu.Framework\osu.Framework.csproj", "{9B7B411C-7BE3-4DFD-A575-D183BD5EB6F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework.NativeLibs", "..\osu-framework\osu.Framework.NativeLibs\osu.Framework.NativeLibs.csproj", "{D5F50C88-B139-4220-A713-A7EE4E68ADD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework.Android", "..\osu-framework\osu.Framework.Android\osu.Framework.Android.csproj", "{CD513DFD-3B9F-4172-BD10-EFC3120E3A4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework.iOS", "..\osu-framework\osu.Framework.iOS\osu.Framework.iOS.csproj", "{E5B063BE-20E0-49D5-A55E-5B57A3F538FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -254,6 +262,22 @@ Global
 		{1743BF7C-E6AE-4A06-BAD9-166D62894303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1743BF7C-E6AE-4A06-BAD9-166D62894303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1743BF7C-E6AE-4A06-BAD9-166D62894303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B7B411C-7BE3-4DFD-A575-D183BD5EB6F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B7B411C-7BE3-4DFD-A575-D183BD5EB6F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B7B411C-7BE3-4DFD-A575-D183BD5EB6F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B7B411C-7BE3-4DFD-A575-D183BD5EB6F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5F50C88-B139-4220-A713-A7EE4E68ADD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F50C88-B139-4220-A713-A7EE4E68ADD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F50C88-B139-4220-A713-A7EE4E68ADD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F50C88-B139-4220-A713-A7EE4E68ADD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD513DFD-3B9F-4172-BD10-EFC3120E3A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD513DFD-3B9F-4172-BD10-EFC3120E3A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD513DFD-3B9F-4172-BD10-EFC3120E3A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD513DFD-3B9F-4172-BD10-EFC3120E3A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B063BE-20E0-49D5-A55E-5B57A3F538FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B063BE-20E0-49D5-A55E-5B57A3F538FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B063BE-20E0-49D5-A55E-5B57A3F538FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B063BE-20E0-49D5-A55E-5B57A3F538FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

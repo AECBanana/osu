@@ -99,6 +99,51 @@ namespace osu.Game.Localisation
         /// </summary>
         public static LocalisableString AdjustBeatmapOffsetAutomaticallyTooltip => new TranslatableString(getKey(@"adjust_beatmap_offset_automatically_tooltip"), @"If enabled, the offset suggested from last play on a beatmap is automatically applied.");
 
+        /// <summary>
+        /// "ASIO/WASAPI"
+        /// </summary>
+        public static LocalisableString AsioWasapiHeader => new TranslatableString(getKey(@"asio_wasapi_header"), @"ASIO/WASAPI");
+
+        /// <summary>
+        /// "Use ASIO audio"
+        /// </summary>
+        public static LocalisableString UseAsioAudio => new TranslatableString(getKey(@"use_asio_audio"), @"Use ASIO audio");
+
+        /// <summary>
+        /// "Use ASIO for low-latency audio output (requires ASIO compatible sound card)"
+        /// </summary>
+        public static LocalisableString UseAsioAudioTooltip => new TranslatableString(getKey(@"use_asio_audio_tooltip"), @"Use ASIO for low-latency audio output (requires ASIO compatible sound card)");
+
+        /// <summary>
+        /// "Use WASAPI audio"
+        /// </summary>
+        public static LocalisableString UseWasapiAudio => new TranslatableString(getKey(@"use_wasapi_audio"), @"Use WASAPI audio");
+
+        /// <summary>
+        /// "Use Windows Audio Session API for exclusive or shared mode audio"
+        /// </summary>
+        public static LocalisableString UseWasapiAudioTooltip => new TranslatableString(getKey(@"use_wasapi_audio_tooltip"), @"Use Windows Audio Session API for exclusive or shared mode audio");
+
+        /// <summary>
+        /// "ASIO buffer size"
+        /// </summary>
+        public static LocalisableString AsioBufferSize => new TranslatableString(getKey(@"asio_buffer_size"), @"ASIO buffer size");
+
+        /// <summary>
+        /// "Buffer size in samples for ASIO audio (lower = less latency but more CPU usage)"
+        /// </summary>
+        public static LocalisableString AsioBufferSizeTooltip => new TranslatableString(getKey(@"asio_buffer_size_tooltip"), @"Buffer size in samples for ASIO audio (lower = less latency but more CPU usage)");
+
+        /// <summary>
+        /// "ASIO sample rate"
+        /// </summary>
+        public static LocalisableString AsioSampleRate => new TranslatableString(getKey(@"asio_sample_rate"), @"ASIO sample rate");
+
+        /// <summary>
+        /// "Sample rate in Hz for ASIO audio (must match your audio device's capabilities)"
+        /// </summary>
+        public static LocalisableString AsioSampleRateTooltip => new TranslatableString(getKey(@"asio_sample_rate_tooltip"), @"Sample rate in Hz for ASIO audio (must match your audio device's capabilities)");
+
         private static string getKey(string key) => $@"{prefix}:{key}";
     }
 }

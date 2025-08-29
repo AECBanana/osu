@@ -31,6 +31,7 @@ using osu.Framework.IO.Stores;
 using osu.Framework.Localisation;
 using osu.Framework.Logging;
 using osu.Framework.Platform;
+using osu.Framework.Threading;
 using osu.Framework.Timing;
 using osu.Game.Audio;
 using osu.Game.Beatmaps;
@@ -296,6 +297,21 @@ namespace osu.Game
 
             addFilesWarning();
 
+            // Create track and sample stores for ExtendedAudioManager
+            var tracks = new ResourceStore<byte[]>();
+            tracks.AddStore(new NamespacedResourceStore<byte[]>(Resources, @"Tracks"));
+            tracks.AddStore(CreateOnlineStore());
+
+            var samples = new ResourceStore<byte[]>();
+            samples.AddStore(new NamespacedResourceStore<byte[]>(Resources, @"Samples"));
+            samples.AddStore(CreateOnlineStore());
+
+            // Replace AudioManager with ExtendedAudioManager
+            // We need to use reflection to set the Audio property since it's read-only
+            var audioField = typeof(Framework.Game).GetField("Audio", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            audioField?.SetValue(this, new ExtendedAudioManager(Host.AudioThread, tracks, samples, LocalConfig) { EventScheduler = Scheduler });
+            dependencies.Cache(Audio);
+
             Audio.Samples.PlaybackConcurrency = SAMPLE_CONCURRENCY;
 
             dependencies.Cache(SkinManager = new SkinManager(Storage, realm, Host, Resources, Audio, Scheduler));
@@ -504,6 +520,7 @@ namespace osu.Game
 
         protected override IReadOnlyDependencyContainer CreateChildDependencies(IReadOnlyDependencyContainer parent) =>
             dependencies = new DependencyContainer(base.CreateChildDependencies(parent));
+
 
         public override void SetHost(GameHost host)
         {

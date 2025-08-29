@@ -110,6 +110,12 @@ namespace osu.Game.Configuration
 
             SetDefault(OsuSetting.AutomaticallyAdjustBeatmapOffset, false);
 
+            // ASIO/WASAPI settings
+            SetDefault(OsuSetting.UseAsioAudio, false);
+            SetDefault(OsuSetting.UseWasapiAudio, false);
+            SetDefault(OsuSetting.AsioBufferSize, 256, 64, 4096, 64);
+            SetDefault(OsuSetting.AsioSampleRate, 48000, 44100, 192000, 100);
+
             // Input
             SetDefault(OsuSetting.MenuCursorSize, 1.0f, 0.5f, 2f, 0.01f);
             SetDefault(OsuSetting.GameplayCursorSize, 1.0f, 0.1f, 2f, 0.01f);
@@ -486,5 +492,25 @@ namespace osu.Game.Configuration
         LastOnlineTagsPopulation,
 
         AutomaticallyAdjustBeatmapOffset,
+
+        /// <summary>
+        /// Whether to use ASIO audio output.
+        /// </summary>
+        UseAsioAudio,
+
+        /// <summary>
+        /// Whether to use WASAPI audio output.
+        /// </summary>
+        UseWasapiAudio,
+
+        /// <summary>
+        /// ASIO buffer size in samples.
+        /// </summary>
+        AsioBufferSize,
+
+        /// <summary>
+        /// ASIO sample rate in Hz.
+        /// </summary>
+        AsioSampleRate,
     }
 }
