@@ -5,12 +5,14 @@
 
 using osu.Framework.Allocation;
 using osu.Framework.Audio;
+using osu.Framework.Bindables;
 using osu.Framework.Graphics;
 using System.Collections.Generic;
 using System.Linq;
 using osu.Framework.Localisation;
 using osu.Game.Graphics.UserInterface;
 using osu.Game.Localisation;
+using osu.Framework;
 
 namespace osu.Game.Overlays.Settings.Sections.Audio
 {
@@ -23,31 +25,39 @@ namespace osu.Game.Overlays.Settings.Sections.Audio
 
         private SettingsDropdown<string> dropdown;
 
-        [BackgroundDependencyLoader]
-        private void load()
-        {
-            Children = new Drawable[]
-            {
-                dropdown = new AudioDeviceSettingsDropdown
-                {
-                    LabelText = AudioSettingsStrings.OutputDevice,
-                    Keywords = new[] { "speaker", "headphone", "output" }
-                }
-            };
-
-            updateItems();
-
-            audio.OnNewDevice += onDeviceChanged;
-            audio.OnLostDevice += onDeviceChanged;
-            dropdown.Current = audio.AudioDevice;
-        }
-
         private void onDeviceChanged(string name) => updateItems();
+
+        private void deviceChanged(ValueChangedEvent<string> e)
+        {
+            // Set the selected device directly through the AudioDevice bindable
+            audio.AudioDevice.Value = e.NewValue;
+        }
 
         private void updateItems()
         {
             var deviceItems = new List<string> { string.Empty };
             deviceItems.AddRange(audio.AudioDeviceNames);
+
+            // Add WASAPI exclusive and shared mode options for each device (Windows only)
+            if (RuntimeInfo.OS == RuntimeInfo.Platform.Windows)
+            {
+                foreach (var deviceName in audio.AudioDeviceNames)
+                {
+                    if (!string.IsNullOrEmpty(deviceName))
+                    {
+                        deviceItems.Add($"WASAPI Exclusive: {deviceName}");
+                        deviceItems.Add($"WASAPI Shared: {deviceName}");
+                    }
+                }
+            }
+
+            // Add ASIO devices to the list (only available in desktop version)
+            var asioDevices = osu.Framework.Audio.Asio.AsioDeviceManager.AvailableDevices.ToList();
+            for (int i = 0; i < asioDevices.Count; i++)
+            {
+                string asioDeviceName = $"ASIO: {asioDevices[i].Name}";
+                deviceItems.Add(asioDeviceName);
+            }
 
             string preferredDeviceName = audio.AudioDevice.Value;
             if (deviceItems.All(kv => kv != preferredDeviceName))
@@ -75,6 +85,24 @@ namespace osu.Game.Overlays.Settings.Sections.Audio
                 audio.OnNewDevice -= onDeviceChanged;
                 audio.OnLostDevice -= onDeviceChanged;
             }
+        }
+
+        [BackgroundDependencyLoader]
+        private void load()
+        {
+            AddRange(new Drawable[]
+            {
+                dropdown = new AudioDeviceSettingsDropdown
+                {
+                    LabelText = AudioSettingsStrings.OutputDevice,
+                    Current = audio.AudioDevice
+                }
+            });
+
+            audio.OnNewDevice += onDeviceChanged;
+            audio.OnLostDevice += onDeviceChanged;
+
+            updateItems();
         }
 
         private partial class AudioDeviceSettingsDropdown : SettingsDropdown<string>

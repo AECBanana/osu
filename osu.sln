@@ -100,6 +100,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysi
 		CodeAnalysis\osu.globalconfig = CodeAnalysis\osu.globalconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework", "..\osu-framework\osu.Framework\osu.Framework.csproj", "{69E8EC06-6562-4E37-8747-F938854D7BDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework.NativeLibs", "..\osu-framework\osu.Framework.NativeLibs\osu.Framework.NativeLibs.csproj", "{2C0E1ADD-FE6D-4DFF-802B-CA6B038A9E07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BassAsio", "..\osu-framework\BassAsio\BassAsio.csproj", "{5D8F8061-9E8D-4966-9A9A-1370106687F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework.Android", "..\osu-framework\osu.Framework.Android\osu.Framework.Android.csproj", "{27C90940-5CBB-4888-8A7A-F52303E0D164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework.iOS", "..\osu-framework\osu.Framework.iOS\osu.Framework.iOS.csproj", "{0C4A3E23-863E-4CF2-9CF0-9EA96451E1DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -254,6 +264,26 @@ Global
 		{1743BF7C-E6AE-4A06-BAD9-166D62894303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1743BF7C-E6AE-4A06-BAD9-166D62894303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1743BF7C-E6AE-4A06-BAD9-166D62894303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E8EC06-6562-4E37-8747-F938854D7BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E8EC06-6562-4E37-8747-F938854D7BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E8EC06-6562-4E37-8747-F938854D7BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E8EC06-6562-4E37-8747-F938854D7BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C0E1ADD-FE6D-4DFF-802B-CA6B038A9E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C0E1ADD-FE6D-4DFF-802B-CA6B038A9E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C0E1ADD-FE6D-4DFF-802B-CA6B038A9E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C0E1ADD-FE6D-4DFF-802B-CA6B038A9E07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C90940-5CBB-4888-8A7A-F52303E0D164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C90940-5CBB-4888-8A7A-F52303E0D164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C90940-5CBB-4888-8A7A-F52303E0D164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C90940-5CBB-4888-8A7A-F52303E0D164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C4A3E23-863E-4CF2-9CF0-9EA96451E1DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C4A3E23-863E-4CF2-9CF0-9EA96451E1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C4A3E23-863E-4CF2-9CF0-9EA96451E1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C4A3E23-863E-4CF2-9CF0-9EA96451E1DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D8F8061-9E8D-4966-9A9A-1370106687F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D8F8061-9E8D-4966-9A9A-1370106687F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D8F8061-9E8D-4966-9A9A-1370106687F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D8F8061-9E8D-4966-9A9A-1370106687F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
